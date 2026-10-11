@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Primary SEO -->
+    <title>Warmezy — Free Daily Hot and Cold Word Game</title>
+    <meta
+      name="description"
+      content="Guess the secret word. Every guess gets a rank by how close its meaning is: the lower the number, the hotter you are. A new word every day."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://warmezy.bgameworld.com/" />
+    <meta name="theme-color" content="#0b0a08" />
+    <meta name="author" content="bgameworld.com" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Warmezy" />
+    <meta property="og:title" content="Warmezy — Free Daily Hot and Cold Word Game" />
+    <meta
+      property="og:description"
+      content="Guess the secret word. Every guess is ranked by how close its meaning is — the lower the number, the hotter you are."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://warmezy.bgameworld.com/" />
+    <meta property="og:image" content="https://warmezy.bgameworld.com/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Warmezy — a list of guessed words ranked from cold blue to hot red" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Warmezy — Free Daily Hot and Cold Word Game" />
+    <meta
+      name="twitter:description"
+      content="Guess the secret word. Every guess is ranked by how close its meaning is — the lower the number, the hotter you are."
+    />
+    <meta name="twitter:image" content="https://warmezy.bgameworld.com/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Warmezy — a list of guessed words ranked from cold blue to hot red" />
+
+    <!-- Icons & home-screen install -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Warmezy" />
+    <meta name="application-name" content="Warmezy" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Warmezy",
+        "url": "https://warmezy.bgameworld.com/",
+        "image": "https://warmezy.bgameworld.com/og-image.jpg",
+        "description": "Guess the secret word. Every guess gets a rank by how close its meaning is: the lower the number, the hotter you are. A new word every day.",
+        "genre": [
+          "Puzzle",
+          "Word Game",
+          "Guessing Game"
+        ],
+        "gamePlatform": "Web browser",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any (Web Browser)",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "publisher": {
+          "@type": "Organization",
+          "name": "bgameworld.com",
+          "url": "https://bgameworld.com/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://hkcvtoozpeybwehqtiif.supabase.co" crossorigin />
+    <link rel="dns-prefetch" href="https://hkcvtoozpeybwehqtiif.supabase.co" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      Critical boot styles — paint before the JS bundle and Tailwind's CSS
+      arrive, so the first frame is the dark background and a loading mark
+      rather than a flash of white.
+    -->
+    <style>
+      html,
+      body {
+        background-color: #0b0a08;
+      }
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background-color: #0b0a08;
+        background-image: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(47, 158, 110, 0.08), transparent 60%);
+        transition: opacity 0.25s ease;
+      }
+      #initial-loader.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #initial-loader .mark {
+        display: flex;
+        gap: 4px;
+        font-family: 'Cinzel', Georgia, serif;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      #initial-loader .mark span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+        color: #0b0a08;
+        animation: sc-hop 1.2s ease-in-out infinite;
+      }
+      #initial-loader .mark span:nth-child(odd) { background: #2f9e6e; }
+      #initial-loader .mark span:nth-child(even) { background: #c9922f; }
+      #initial-loader .mark span:nth-child(2) { animation-delay: 0.1s; }
+      #initial-loader .mark span:nth-child(3) { animation-delay: 0.2s; }
+      #initial-loader .mark span:nth-child(4) { animation-delay: 0.3s; }
+      #initial-loader .mark span:nth-child(5) { animation-delay: 0.4s; }
+      #initial-loader .mark span:nth-child(6) { animation-delay: 0.5s; }
+      #initial-loader .mark span:nth-child(7) { animation-delay: 0.6s; }
+      #initial-loader .mark span:nth-child(8) { animation-delay: 0.7s; }
+      #initial-loader .caption {
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: #978c79;
+      }
+      @keyframes sc-hop {
+        0%, 60%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-6px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #initial-loader .mark span { animation: none; }
+      }
+    </style>
+  </head>
+  <body class="bg-[#0b0a08] text-paper antialiased">
+    <div id="initial-loader" aria-live="polite" aria-label="Loading Warmezy">
+      <div class="mark"><span>W</span><span>A</span><span>R</span><span>M</span></div>
+      <div class="caption">Warming up&hellip;</div>
+    </div>
+    <div id="root"></div>
+    <noscript>
+      <h1>Warmezy — a free daily hot-and-cold word game</h1>
+      <p>
+        There's one secret word a day, the same for every player. Type any word and it gets a rank by how close its meaning is to the secret: rank 1 is the word itself, and the lower the number, the hotter you are. Use hints if you're stuck. Warmezy needs JavaScript to play.
+      </p>
+      <p>More free games: <a href="https://wordezy.bgameworld.com/">Wordezy</a>, <a href="https://wordezysearch.bgameworld.com/">Wordezy Search</a>, <a href="https://wordezyscramble.bgameworld.com/">Wordezy Scramble</a>, <a href="https://wordezyladder.bgameworld.com/">Wordezy Ladder</a>, <a href="https://sortezy.bgameworld.com/">Sortezy</a>, <a href="https://linkezy.bgameworld.com/">Linkezy</a>, <a href="https://lingoezy.bgameworld.com/">Lingoezy</a>, <a href="https://mergezy.bgameworld.com/">Mergezy</a>, <a href="https://letterezy.bgameworld.com/">Letterezy</a>, <a href="https://doodlezy.bgameworld.com/">Doodlezy</a>, <a href="https://whenandwhere.bgameworld.com/">When &amp; Where</a>.</p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

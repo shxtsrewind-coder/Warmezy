@@ -7,6 +7,9 @@
   // Deploy step: `npx wrangler deploy`
   "name": "warmezy",
   "compatibility_date": "2026-01-01",
+  // The game's own address. Deploying creates the custom domain (and its DNS
+  // record) automatically, so there's nothing to set up by hand.
+  "routes": [{ "pattern": "warmezy.bgameworld.com", "custom_domain": true }],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "single-page-application"

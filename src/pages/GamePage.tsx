@@ -342,7 +342,7 @@ export const GamePage: React.FC = () => {
           if (wordsError) fetchWords();
           game.retry();
         }}
-        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-correct hover:bg-correct-dim text-paper text-sm font-medium"
+        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-correct hover:bg-correct-dim text-white text-sm font-medium"
       >
         <RefreshCw className="w-4 h-4" />
         Try again
@@ -365,7 +365,7 @@ export const GamePage: React.FC = () => {
           footer={
             mode === "daily" ? (
               <>
-                <button type="button" onClick={handleShare} className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-correct hover:bg-correct-dim text-paper font-medium text-sm transition-colors">
+                <button type="button" onClick={handleShare} className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-correct hover:bg-correct-dim text-white font-medium text-sm transition-colors">
                   {shareState === "copied" ? <Check className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
                   {shareState === "copied" ? "Copied — paste it anywhere" : shareState === "failed" ? "Couldn't copy — try again" : "Share result"}
                 </button>
@@ -375,7 +375,7 @@ export const GamePage: React.FC = () => {
                 <DailyFooter hasProfile={hasProfile} scoreStatus={scoreStatus} onJoin={() => setShowAuth(true)} statsLine={statsLine} />
               </>
             ) : (
-              <button type="button" onClick={startPractice} className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-correct hover:bg-correct-dim text-paper font-medium text-sm transition-colors">
+              <button type="button" onClick={startPractice} className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-correct hover:bg-correct-dim text-white font-medium text-sm transition-colors">
                 <InfinityIcon className="w-4 h-4" />
                 Another practice word
               </button>
@@ -403,7 +403,7 @@ export const GamePage: React.FC = () => {
               disabled={modalOpen}
               className="flex-1 min-w-0 px-4 py-3 rounded-full bg-surface border border-rule text-paper text-base focus:outline-none focus:border-correct"
             />
-            <button type="submit" disabled={modalOpen || !input.trim()} className="px-5 rounded-full bg-correct hover:bg-correct-dim text-paper font-medium transition-colors disabled:opacity-40">
+            <button type="submit" disabled={modalOpen || !input.trim()} className="px-5 rounded-full bg-correct hover:bg-correct-dim text-white font-medium transition-colors disabled:opacity-40">
               Guess
             </button>
           </form>
@@ -481,7 +481,7 @@ export const GamePage: React.FC = () => {
             <button type="button" onClick={() => setConfirmGiveUp(false)} className="py-2.5 rounded-lg border border-rule text-sm text-paper/90 hover:border-muted/60 transition-colors">
               Keep going
             </button>
-            <button type="button" onClick={giveUp} className="py-2.5 rounded-lg bg-danger hover:bg-danger/80 text-paper font-medium text-sm transition-colors">
+            <button type="button" onClick={giveUp} className="py-2.5 rounded-lg bg-danger hover:bg-danger/80 text-white font-medium text-sm transition-colors">
               Reveal it
             </button>
           </div>
@@ -494,7 +494,7 @@ export const GamePage: React.FC = () => {
             key={m}
             type="button"
             onClick={() => setMode(m)}
-            className={`flex items-center gap-1.5 px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${mode === m ? "bg-correct text-paper" : "text-muted hover:text-paper"}`}
+            className={`flex items-center gap-1.5 px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${mode === m ? "bg-correct text-white" : "text-muted hover:text-white"}`}
           >
             {m === "daily" ? `Daily No. ${number}` : "Practice"}
             {m === "practice" && !save.unlockedPractice && <Lock className="w-3.5 h-3.5" />}
@@ -525,7 +525,7 @@ export const GamePage: React.FC = () => {
               <h2 className="font-display font-semibold text-lg">Practice words</h2>
               <p className="text-sm text-muted mt-1.5">Play as many secret words as you like, with hints and the closest-words reveal. The daily stays free forever.</p>
             </div>
-            <button type="button" onClick={handleUnlock} className="w-full py-2.5 px-4 rounded-md bg-correct hover:bg-correct-dim text-paper font-medium text-sm transition-colors">
+            <button type="button" onClick={handleUnlock} className="w-full py-2.5 px-4 rounded-md bg-correct hover:bg-correct-dim text-white font-medium text-sm transition-colors">
               Unlock practice for $2
             </button>
           </section>
@@ -534,7 +534,7 @@ export const GamePage: React.FC = () => {
           <section className="w-full bg-surface border border-rule rounded-xl p-6 text-center space-y-4 animate-rise-in">
             <h2 className="font-display font-semibold text-xl">Practice words</h2>
             <p className="text-sm text-muted">A secret word that isn't anyone's daily.{save.practiceSolves ? ` You've found ${save.practiceSolves}.` : ""}</p>
-            <button type="button" onClick={startPractice} disabled={!words} className="inline-flex items-center justify-center gap-2 w-full max-w-xs py-3 rounded-lg bg-correct hover:bg-correct-dim text-paper font-medium transition-colors disabled:opacity-50">
+            <button type="button" onClick={startPractice} disabled={!words} className="inline-flex items-center justify-center gap-2 w-full max-w-xs py-3 rounded-lg bg-correct hover:bg-correct-dim text-white font-medium transition-colors disabled:opacity-50">
               <InfinityIcon className="w-4 h-4" />
               Start a practice word
             </button>
@@ -572,7 +572,7 @@ const Legend: React.FC = () => (
 );
 
 const Dialog: React.FC<{ label: string; onCancel: () => void; children: React.ReactNode }> = ({ label, onCancel, children }) => (
-  <div role="dialog" aria-modal="true" aria-label={label} className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={onCancel}>
+  <div role="dialog" aria-modal="true" aria-label={label} className="fixed inset-0 z-50 bg-white/75 backdrop-blur-sm flex items-center justify-center p-4" onClick={onCancel}>
     <div className="w-full max-w-sm bg-surface border border-rule rounded-2xl p-6 space-y-4 text-center" onClick={(e) => e.stopPropagation()}>
       {children}
     </div>
@@ -580,7 +580,7 @@ const Dialog: React.FC<{ label: string; onCancel: () => void; children: React.Re
 );
 
 const HelpModal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
-  <div role="dialog" aria-modal="true" aria-label="How to play" className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
+  <div role="dialog" aria-modal="true" aria-label="How to play" className="fixed inset-0 z-50 bg-white/75 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
     <div className="w-full max-w-md bg-surface border border-rule rounded-2xl p-6 space-y-4 max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
       <div className="flex items-center justify-between">
         <h2 className="font-display font-semibold text-lg">How to play</h2>
@@ -598,7 +598,7 @@ const HelpModal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
         <li>Stuck? A hint gives you a word about halfway between your best guess and the answer. It counts as a guess.</li>
       </ul>
       <Legend />
-      <button type="button" onClick={onClose} className="w-full py-2.5 rounded-lg bg-correct hover:bg-correct-dim text-paper font-medium text-sm transition-colors">
+      <button type="button" onClick={onClose} className="w-full py-2.5 rounded-lg bg-correct hover:bg-correct-dim text-white font-medium text-sm transition-colors">
         Let's play
       </button>
     </div>
